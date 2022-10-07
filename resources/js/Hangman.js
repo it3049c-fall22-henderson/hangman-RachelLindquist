@@ -32,11 +32,18 @@ class Hangman {
    */
   start(difficulty, next) {
     // get word and set it to the class's this.word
+    this.word = getRandomWord(difficulty);
+    next;
     // clear canvas
+    this.clearCanvas();
     // draw base
+    this.drawBase();
     // reset this.guesses to empty array
+    this.guesses = [];
     // reset this.isOver to false
+    this.isOver = false;
     // reset this.didWin to false
+    this.didWin = false;
   }
 
   /**
