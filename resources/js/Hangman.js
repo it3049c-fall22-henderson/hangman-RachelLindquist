@@ -105,7 +105,9 @@ class Hangman {
    * drawHead, drawBody, drawRightArm, drawLeftArm, drawRightLeg, or drawLeftLeg.
    * if the number wrong guesses is 6, then also set isOver to true and didWin to false.
    */
-  onWrongGuess() {}
+  onWrongGuess() {
+
+  }
 
   /**
    * This function will return a string of the word placeholder
@@ -123,7 +125,7 @@ class Hangman {
    * Hint: use the Array.prototype.join method.
    */
   getGuessesText() {
-    return ``;
+    return this.guesses.prototype.join(", ");
   }
 
   /**
