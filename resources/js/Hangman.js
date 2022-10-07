@@ -34,7 +34,6 @@ class Hangman {
   start(difficulty, next) {
     // get word and set it to the class's this.word
     this.word = this.getRandomWord(difficulty);
-    next();
     // clear canvas
     this.clearCanvas();
     // draw base
@@ -45,6 +44,7 @@ class Hangman {
     this.isOver = false;
     // reset this.didWin to false
     this.didWin = false;
+    next();
   }
 
   /**
@@ -154,7 +154,7 @@ class Hangman {
    * Hint: use the Array.prototype.join method.
    */
   getGuessesText() {
-    return this.guesses.prototype.join(", ");
+    return this.guesses.join(", ");
   }
 
   /**

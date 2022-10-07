@@ -33,10 +33,11 @@ try {
     event.preventDefault();
     let difficulty = difficultySelect.value;
     game.start(difficulty, function(){
-      startWrapper.classList.add('d-none');
-      gameWrapper.classList.remove('d-none');
+      event.preventDefault();
+      startWrapper.classList.add('hidden');
+      gameWrapper.classList.remove('hidden');
       wordHolderText.text = game.getWordHolderText();
-      guessesText.text = game.getGuessessText();
+      guessesText.text = game.getGuessesText();
     })
   });
 
