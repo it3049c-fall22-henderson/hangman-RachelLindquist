@@ -34,7 +34,7 @@ class Hangman {
   start(difficulty, next) {
     // get word and set it to the class's this.word
     this.word = this.getRandomWord(difficulty);
-    next;
+    next();
     // clear canvas
     this.clearCanvas();
     // draw base
