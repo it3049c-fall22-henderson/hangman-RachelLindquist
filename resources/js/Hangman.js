@@ -55,11 +55,32 @@ class Hangman {
     // Check for invalid cases (numbers, symbols, ...) throw an error if it is
     // Check if more than one letter was provided. throw an error if it is.
     // if it's a letter, convert it to lower case for consistency.
-    // check if this.guesses includes the letter. Throw an error if it has been guessed already.
-    // add the new letter to the guesses array.
-    // check if the word includes the guessed letter:
-    //    if it's is call checkWin()
-    //    if it's not call onWrongGuess()
+    if (letter.length === 1 && letter.match(/[a-z]/i)){
+      letter = letter.toLowerCase();
+      // check if this.guesses includes the letter. Throw an error if it has been guessed already.
+      if (this.guesses.indexof(letter) != -1){
+        throw 'letter already guessed';
+      } else {
+        // add the new letter to the guesses array.
+        this.guesses.push(letter);
+        // check if the word includes the guessed letter:
+        if (this.word.indexof(letter) != -1){
+          //    if it's is call checkWin()
+          this.checkWin();
+        } else {
+          //    if it's not call onWrongGuess()
+          this.onWrongGuess();
+        }
+      }
+    }else if (!letter){
+      throw 'nothing provided';
+    } else if (letter.isNan()){
+      throw 'cant guess a number';
+    } else if (letter.length > 1){
+      throw 'only 1 letter allowed';
+    } else {
+      throw 'cant guess a symbol';
+    }
   }
 
   checkWin() {
