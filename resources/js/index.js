@@ -31,7 +31,7 @@ try {
   //       4. call the game getGuessessText and set it to the guessesText
   difficultySelectForm.addEventListener(`submit`, function (event) {
     event.preventDefault();
-    let difficulty = difficultySelectForm.value;
+    let difficulty = difficultySelect.value;
     game.start(difficulty, function(){
       startWrapper.classList.add('d-none');
       gameWrapper.classList.remove('d-none');
