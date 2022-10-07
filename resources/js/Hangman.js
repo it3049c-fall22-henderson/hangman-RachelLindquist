@@ -106,7 +106,27 @@ class Hangman {
    * if the number wrong guesses is 6, then also set isOver to true and didWin to false.
    */
   onWrongGuess() {
-
+    wrongGuess = 0;
+    for (let i = 0; i < this.guesses.length; i++){
+      if (this.word.indexof(guesses[i]) === -1){
+        wrongGuess ++;
+      }
+    }
+    if (wrongGuess === 1){
+      this.drawHead();
+    } else if (wrongGuess === 2){
+      this.drawBody();
+    } else if (wrongGuess === 3){
+      this.drawRightArm();
+    } else if (wrongGuess === 4){
+      this.drawLeftArm();
+    } else if (wrongGuess == 5){
+      this.drawRightLeg();
+    } else if (wrongGuess == 6){
+      this.drawLeftLeg();
+      this.isOver = true;
+      this.didWin = false;
+    }
   }
 
   /**
