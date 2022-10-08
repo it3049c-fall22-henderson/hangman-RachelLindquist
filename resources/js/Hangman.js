@@ -61,7 +61,7 @@ class Hangman {
     if (letter.length === 1 && letter.match(/[a-z]/i)){
       letter = letter.toLowerCase();
       // check if this.guesses includes the letter. Throw an error if it has been guessed already.
-      if (this.guesses.indexOf(letter) != -1){
+      if (this.guesses.includes(letter)){
         throw 'letter already guessed';
       } else {
         // add the new letter to the guesses array.
@@ -140,10 +140,10 @@ class Hangman {
   getWordHolderText() {
     let placeholder = "";
     for (let i =0; i < this.word.length; i++){
-      if (this.guesses.indexof(this.word[i]) === -1){
-        placeholder.push("_ ");
+      if (this.guesses.includes(this.word[i])){
+        placeholder+="_ ";
       } else {
-        placeholder.push(this.word[i] + " ");
+        placeholder+=this.word[i] + " ";
       }
     }
     return placeholder;
