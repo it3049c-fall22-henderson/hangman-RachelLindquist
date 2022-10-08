@@ -59,7 +59,7 @@ try {
     let input = guessInput.value;
     console.log(input);
     game.guess(input);
-    wordHolderText.value = game.getHolderText();
+    wordHolderText.value = game.getWordHolderText();
     guessesText.value = game.getGuessesText();
     guessInput.value = "";
 
