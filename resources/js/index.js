@@ -56,11 +56,12 @@ try {
   // if the game is won or lost, show an alert.
   guessForm.addEventListener(`submit`, function (e) {
     e.preventDefault();
-    let input = guessForm.value;
+    let input = guessInput.value;
+    console.log(input);
     game.guess(input);
     wordHolderText.value = game.getHolderText();
     guessesText.value = game.getGuessesText();
-    guessForm.value = "";
+    guessInput.value = "";
 
     if (game.isOver){
       guessInput.disabled = true;
