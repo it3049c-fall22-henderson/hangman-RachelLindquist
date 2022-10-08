@@ -22,6 +22,7 @@ let canvas = document.getElementById(`hangmanCanvas`);
 // The following Try-Catch Block will catch the errors thrown
 try {
   // Instantiate a game Object using the Hangman class.
+  resetGame.classList.add('hidden');
   game = new Hangman(canvas);
   // add a submit Event Listener for the to the difficultySelectionForm
   //    get the difficulty input
@@ -38,6 +39,8 @@ try {
       gameWrapper.classList.remove('hidden');
       wordHolderText.text = game.getWordHolderText();
       guessesText.text = game.getGuessesText();
+      guessInput.disabled = false;
+      guessButton.disabled = false;
     })
   });
 
@@ -66,7 +69,7 @@ try {
     if (game.isOver){
       guessInput.disabled = true;
       guessButton.disabled = true;
-      resetGame.classList.remove('hidden')
+      resetGame.classList.remove('hidden');
       if (game.didWin){
         alert("Congrats you won!");
       } else {
