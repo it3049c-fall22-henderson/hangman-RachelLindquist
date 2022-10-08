@@ -67,7 +67,7 @@ class Hangman {
         // add the new letter to the guesses array.
         this.guesses.push(letter);
         // check if the word includes the guessed letter:
-        if (this.word.includes(letter)){
+        if (this.word.includes(letter) === true){
           //    if it's is call checkWin()
           this.checkWin();
         } else {
@@ -90,13 +90,14 @@ class Hangman {
     // using the word and the guesses array, figure out how many remaining unknowns.
     // if zero, set both didWin, and isOver to true
     let found = 0;
-    for (let i = 0; i < this.word.length; i++){
+    for (let i = 0; i < this.guesses.length; i++){
       for (let j = 0; j < this.word.length; j++){
-        if (this.word[i] == this.guesses[j]){
-          found++;
+        if (this.word[j] === this.guesses[i]){
+          found ++;
         }
       }
     }
+    console.log(found);
     if (this.word.length - found === 0){
       this.didWin = true;
       this.isOver = true;
@@ -111,7 +112,7 @@ class Hangman {
   onWrongGuess() {
     let wrongGuess = 0;
     for (let i = 0; i < this.guesses.length; i++){
-      if (this.word.includes(this.guesses[i])){
+      if (!this.word.includes(this.guesses[i])){
         wrongGuess ++;
       }
     }
@@ -140,7 +141,7 @@ class Hangman {
   getWordHolderText() {
     let placeholder = "";
     for (let i =0; i < this.word.length; i++){
-      if (this.guesses.includes(this.word[i])){
+      if (!this.guesses.includes(this.word[i]) === true){
         placeholder+="_ ";
       } else {
         placeholder+=this.word[i] + " ";
@@ -176,15 +177,27 @@ class Hangman {
     this.ctx.fillRect(10, 410, 175, 10); // Base
   }
 
-  drawHead() {}
+  drawHead() {
+    console.log("head");
+  }
 
-  drawBody() {}
+  drawBody() {
+    console.log("body");
+  }
 
-  drawLeftArm() {}
+  drawLeftArm() {
+    console.log("Left Arm");
+  }
 
-  drawRightArm() {}
+  drawRightArm() {
+    console.log("Right arm");
+  }
 
-  drawLeftLeg() {}
+  drawLeftLeg() {
+    console.log ("Left Leg");
+  }
 
-  drawRightLeg() {}
+  drawRightLeg() {
+    console.log ("right leg");
+  }
 }
