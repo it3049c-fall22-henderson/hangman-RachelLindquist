@@ -11,6 +11,7 @@ const wordHolderText = document.getElementById(`wordHolder`);
 // GUESSING FORM
 const guessForm = document.getElementById(`guessForm`);
 const guessInput = document.getElementById(`guessInput`);
+const guessButton = document.getElementById('guessSubmitButton'); //added
 
 // GAME RESET BUTTON
 const resetGame = document.getElementById(`resetGame`);
@@ -30,7 +31,6 @@ try {
   //       3. call the game getWordHolderText and set it to the wordHolderText
   //       4. call the game getGuessessText and set it to the guessesText
   difficultySelectForm.addEventListener(`submit`, function (event) {
-    event.preventDefault();
     let difficulty = difficultySelect.value;
     game.start(difficulty, function(){
       event.preventDefault();
@@ -54,7 +54,26 @@ try {
   //      2. disable the guessButton
   //      3. show the resetGame button
   // if the game is won or lost, show an alert.
-  guessForm.addEventListener(`submit`, function (e) {});
+  guessForm.addEventListener(`submit`, function (e) {
+    e.preventDefault();
+    let input = guessForm.value;
+    game.guess(input);
+    wordHolderText.value = game.getHolderText();
+    guessesText.value = game.getGuessesText();
+    guessForm.value = "";
+
+    if (game.isOver){
+      guessInput.disabled = true;
+      guessButton.disabled = true;
+      resetGame.classList.remove('hidden')
+      if (game.didWin){
+        alert("Congrats you won!");
+      } else {
+        alert ("Boo, you lost");
+      }
+    }
+
+  });
 
   // add a click Event Listener to the resetGame button
   //    show the startWrapper
