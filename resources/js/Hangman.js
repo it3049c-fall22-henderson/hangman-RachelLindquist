@@ -18,12 +18,14 @@ class Hangman {
    *    { word: "book" }
    * */
   getRandomWord(difficulty) {
-    return fetch(
+    //return fetch(
       // had to change link, couldn't pull from previous one
-      `https://hangman-micro-service.herokuapp.com/?difficulty=${difficulty}` 
-    )
-      .then((r) => r.json())
-      .then((r) => r.word);
+      //`https://hangman-micro-service.herokuapp.com/?difficulty=${difficulty}` 
+      //'https://hangman-micro-service.herokuapp.com/?difficulty=easy'
+    //)
+    return "cat";
+      //.then((r) => r.json())
+      //.then((r) => r.word);
   }
 
   /**
@@ -59,13 +61,13 @@ class Hangman {
     if (letter.length === 1 && letter.match(/[a-z]/i)){
       letter = letter.toLowerCase();
       // check if this.guesses includes the letter. Throw an error if it has been guessed already.
-      if (this.guesses.indexof(letter) != -1){
+      if (this.guesses.indexOf(letter) != -1){
         throw 'letter already guessed';
       } else {
         // add the new letter to the guesses array.
         this.guesses.push(letter);
         // check if the word includes the guessed letter:
-        if (this.word.indexof(letter) != -1){
+        if (this.word.includes(letter)){
           //    if it's is call checkWin()
           this.checkWin();
         } else {
@@ -90,7 +92,7 @@ class Hangman {
     let found = 0;
     for (let i = 0; i < this.word.length; i++){
       for (let j = 0; j < this.word.length; j++){
-        if (word[i] == guesses[j]){
+        if (this.word[i] == this.guesses[j]){
           found++;
         }
       }
@@ -109,7 +111,7 @@ class Hangman {
   onWrongGuess() {
     let wrongGuess = 0;
     for (let i = 0; i < this.guesses.length; i++){
-      if (this.word.indexof(guesses[i]) === -1){
+      if (this.word.includes(this.guesses[i])){
         wrongGuess ++;
       }
     }
@@ -138,10 +140,10 @@ class Hangman {
   getWordHolderText() {
     let placeholder = "";
     for (let i =0; i < this.word.length; i++){
-      if (guesses.indexof(word[i]) === -1){
+      if (this.guesses.indexof(this.word[i]) === -1){
         placeholder.push("_ ");
       } else {
-        placeholder.push(word[i] + " ");
+        placeholder.push(this.word[i] + " ");
       }
     }
     return placeholder;
