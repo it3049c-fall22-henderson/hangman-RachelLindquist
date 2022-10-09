@@ -25,11 +25,6 @@ class Hangman {
     )
       .then((r) => r.json())
       .then((r) => r.word)
-      .then(function(data) {
-        var word = data;
-        console.log(word);
-        return word;
-      });
   }
 
   /**
@@ -37,10 +32,9 @@ class Hangman {
    * @param {string} difficulty a difficulty string to be passed to the getRandomWord Function
    * @param {function} next callback function to be called after a word is reveived from the API.
    */
-  start(difficulty, next) {
+  async start(difficulty, next) {
     // get word and set it to the class's this.word
-    this.word = this.getRandomWord(difficulty); 
-    console.log(this.word);
+    this.word = await this.getRandomWord(difficulty); 
     // clear canvas
     this.clearCanvas();
     // draw base
@@ -53,14 +47,6 @@ class Hangman {
     this.didWin = false;
     next();
   }
-  //Cant use await and get randomWord does not return what it says it does
-  // giving up and adding a function to fix this.word once it finally returns
-  fixedWord(){
-    console.log(this.word);
-    let g = this.word;
-    console.log(g);
-  }
-
   /**
    *
    * @param {string} letter the guessed letter.
