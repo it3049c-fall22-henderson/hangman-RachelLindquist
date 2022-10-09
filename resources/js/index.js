@@ -37,8 +37,8 @@ try {
       event.preventDefault();
       startWrapper.classList.add('hidden');
       gameWrapper.classList.remove('hidden');
-      wordHolderText.text = game.getWordHolderText();
-      guessesText.text = game.getGuessesText();
+      wordHolderText.innerHTML +=game.getWordHolderText();
+      guessesText.innerHTML += game.getGuessesText();
       guessInput.disabled = false;
       guessButton.disabled = false;
     })
@@ -62,8 +62,8 @@ try {
     let input = guessInput.value;
     console.log(input);
     game.guess(input);
-    wordHolderText.value = game.getWordHolderText();
-    guessesText.value = game.getGuessesText();
+    wordHolderText.innerHTML = game.getWordHolderText();
+    guessesText.innerHTML = game.getGuessesText();
     guessInput.value = "";
 
     if (game.isOver){
