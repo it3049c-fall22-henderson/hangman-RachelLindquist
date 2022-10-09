@@ -17,13 +17,14 @@ class Hangman {
    * The results is a json object that looks like this:
    *    { word: "book" }
    * */
+  //TODO FIX ME, return fetch isnt working correctly
   getRandomWord(difficulty) {
     //return fetch(
       // had to change link, couldn't pull from previous one
       //`https://hangman-micro-service.herokuapp.com/?difficulty=${difficulty}` 
       //'https://hangman-micro-service.herokuapp.com/?difficulty=easy'
     //)
-    return "cat";
+    return "moo";
       //.then((r) => r.json())
       //.then((r) => r.word);
   }
