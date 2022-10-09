@@ -17,16 +17,14 @@ class Hangman {
    * The results is a json object that looks like this:
    *    { word: "book" }
    * */
-  //TODO FIX ME, return fetch isnt working correctly
   getRandomWord(difficulty) {
-    //return fetch(
+    return fetch(
       // had to change link, couldn't pull from previous one
-      //`https://hangman-micro-service.herokuapp.com/?difficulty=${difficulty}` 
+      `https://hangman-micro-service.herokuapp.com/?difficulty=${difficulty}` 
       //'https://hangman-micro-service.herokuapp.com/?difficulty=easy'
-    //)
-    //return "moo";
-      //.then((r) => r.json())
-      //.then((r) => r.word);
+    )
+      .then((r) => r.json())
+      .then((r) => r.word);
   }
 
   /**
@@ -36,7 +34,8 @@ class Hangman {
    */
   start(difficulty, next) {
     // get word and set it to the class's this.word
-    this.word = this.getRandomWord(difficulty);
+    this.word = this.getRandomWord(difficulty); 
+    console.log(this.word);
     // clear canvas
     this.clearCanvas();
     // draw base
@@ -48,6 +47,12 @@ class Hangman {
     // reset this.didWin to false
     this.didWin = false;
     next();
+  }
+  //Cant use await and get randomWord does not return what it says it does
+  // giving up and adding a function to fix this.word once it finally returns
+  fixedWord(){
+    var as = JSON.parse(this.word);
+    console.log(as);
   }
 
   /**
