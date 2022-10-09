@@ -158,7 +158,7 @@ class Hangman {
    * Hint: use the Array.prototype.join method.
    */
   getGuessesText() {
-    return this.guesses.join(", ");
+    return "Guesses: " + this.guesses.join(", ");
   }
 
   /**
