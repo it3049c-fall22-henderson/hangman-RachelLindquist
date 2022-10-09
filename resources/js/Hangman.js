@@ -24,7 +24,7 @@ class Hangman {
       //`https://hangman-micro-service.herokuapp.com/?difficulty=${difficulty}` 
       //'https://hangman-micro-service.herokuapp.com/?difficulty=easy'
     //)
-    return "moo";
+    //return "moo";
       //.then((r) => r.json())
       //.then((r) => r.word);
   }
@@ -98,7 +98,6 @@ class Hangman {
         }
       }
     }
-    console.log(found);
     if (this.word.length - found === 0){
       this.didWin = true;
       this.isOver = true;
