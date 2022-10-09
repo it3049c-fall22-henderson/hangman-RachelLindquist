@@ -24,7 +24,12 @@ class Hangman {
       //'https://hangman-micro-service.herokuapp.com/?difficulty=easy'
     )
       .then((r) => r.json())
-      .then((r) => r.word);
+      .then((r) => r.word)
+      .then(function(data) {
+        var word = data;
+        console.log(word);
+        return word;
+      });
   }
 
   /**
@@ -51,8 +56,9 @@ class Hangman {
   //Cant use await and get randomWord does not return what it says it does
   // giving up and adding a function to fix this.word once it finally returns
   fixedWord(){
-    var as = JSON.parse(this.word);
-    console.log(as);
+    console.log(this.word);
+    let g = this.word;
+    console.log(g);
   }
 
   /**
