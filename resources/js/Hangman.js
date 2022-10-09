@@ -179,26 +179,29 @@ class Hangman {
   }
 
   drawHead() {
-    console.log("head");
+    this.ctx.beginPath();
+    this.ctx.arc(250,90,30,0, 2*Math.PI, true);
+    this.ctx.stroke();
+    this.ctx.closePath();
   }
 
   drawBody() {
-    console.log("body");
+    this.ctx.fillRect(245,120,5,80); //150
   }
 
   drawLeftArm() {
-    console.log("Left Arm");
+    this.ctx.fillRect(180,140,65,5);
   }
 
   drawRightArm() {
-    console.log("Right arm");
+    this.ctx.fillRect(245,140,65,5);
   }
 
   drawLeftLeg() {
-    console.log ("Left Leg");
+    this.ctx.fillRect(180,195,65,5);
   }
 
   drawRightLeg() {
-    console.log ("right leg");
+    this.ctx.fillRect(245,195,65,5);
   }
 }
