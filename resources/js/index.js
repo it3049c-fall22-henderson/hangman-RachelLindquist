@@ -60,7 +60,6 @@ try {
   guessForm.addEventListener(`submit`, function (e) {
     e.preventDefault();
     let input = guessInput.value;
-    console.log(input);
     game.guess(input);
     wordHolderText.innerHTML = game.getWordHolderText();
     guessesText.innerHTML = game.getGuessesText();
